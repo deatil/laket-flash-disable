@@ -1,0 +1,43 @@
+{
+    "name": "laket/laket-flash-disable",
+    "description": "闪存插件禁用，禁用后插件将不能进行相关的操作",
+    "keywords": [
+        "laket",
+        "admin",
+        "laket-admin",
+        "flash",
+        "flash-disable"
+    ],
+    "homepage": "https://github.com/deatil/laket-flash-disable",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "deatil",
+            "email": "deatil@github.com",
+            "homepage": "https://github.com/deatil",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "laket/laket-admin": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laket\\Admin\\FlashDisable\\": "src"
+        }
+    },
+    "laket" : {
+        "title": "闪存禁用",
+        "version": "1.0.0",
+        "adaptation": "1.0.*"
+    },
+    "extra": {
+        "think":{
+            "services":[
+                "Laket\\Admin\\FlashDisable\\Service"
+            ]
+        }
+    }
+}
