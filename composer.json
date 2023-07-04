@@ -29,9 +29,9 @@
         }
     },
     "laket" : {
-        "title": "闪存禁用",
-        "version": "1.0.0",
-        "adaptation": "1.0.*"
+        "title": "插件禁用",
+        "version": "1.1.0",
+        "adaptation": "1.1.*"
     },
     "extra": {
         "think":{
