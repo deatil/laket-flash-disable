@@ -33,7 +33,10 @@ class CheckDisable
      */
     public function handle($request, Closure $next)
     {
-        $this->check();
+        $res = $this->check();
+        if ($res !== true) {
+            return $res;
+        }
         
         return $next($request);
     }
@@ -51,50 +54,52 @@ class CheckDisable
         // 安装
         if (Request::matchPath('post:admin.flash.install')) {
             if (in_array($name, $config['install'])) {
-                $this->error('当前闪存插件('.$name.')禁止安装！');
+                return $this->error('当前闪存插件('.$name.')禁止安装！');
             }
         }
         
         // 卸载
         if (Request::matchPath('post:admin.flash.uninstall')) {
             if (in_array($name, $config['uninstall'])) {
-                $this->error('当前闪存插件('.$name.')禁止卸载！');
+                return $this->error('当前闪存插件('.$name.')禁止卸载！');
             }
         }
         
         // 更新
         if (Request::matchPath('post:admin.flash.upgrade')) {
             if (in_array($name, $config['upgrade'])) {
-                $this->error('当前闪存插件('.$name.')禁止更新！');
+                return $this->error('当前闪存插件('.$name.')禁止更新！');
             }
         }
         
         // 启用
         if (Request::matchPath('post:admin.flash.enable')) {
             if (in_array($name, $config['enable'])) {
-                $this->error('当前闪存插件('.$name.')禁止启用！');
+                return $this->error('当前闪存插件('.$name.')禁止启用！');
             }
         }
         
         // 禁用
         if (Request::matchPath('post:admin.flash.disable')) {
             if (in_array($name, $config['disable'])) {
-                $this->error('当前闪存插件('.$name.')禁止禁用！');
+                return $this->error('当前闪存插件('.$name.')禁止禁用！');
             }
         }
         
         // 排序
         if (Request::matchPath('post:admin.flash.listorder')) {
             if (in_array($name, $config['listorder'])) {
-                $this->error('当前闪存插件('.$name.')禁止更改排序！');
+                return $this->error('当前闪存插件('.$name.')禁止更改排序！');
             }
         }
         
         // 设置
         if (Request::matchPath('post:admin.flash.setting')) {
             if (in_array($name, $config['setting'])) {
-                $this->error('当前闪存插件('.$name.')禁止设置！');
+                return $this->error('当前闪存插件('.$name.')禁止设置！');
             }
         }
+        
+        return true;
     }
 }

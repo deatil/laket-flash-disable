@@ -6,7 +6,7 @@ return [
         'laket/laket-flash-disable',
     ],
     'uninstall' => [ 
-        'laket/laket-flash-disable',
+        // 'laket/laket-flash-disable',
     ],
     'upgrade' => [ 
         'laket/laket-flash-disable',
@@ -15,7 +15,7 @@ return [
         'laket/laket-flash-disable',
     ],
     'disable' => [ 
-        'laket/laket-flash-disable',
+        // 'laket/laket-flash-disable',
     ],
     'listorder' => [ 
         'laket/laket-flash-disable',

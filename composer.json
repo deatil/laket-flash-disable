@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": ">=8.0.0",
         "laket/laket-admin": "1.2.*"
     },
     "autoload": {
@@ -30,7 +30,7 @@
     },
     "laket" : {
         "title": "插件禁用",
-        "version": "1.2.0",
+        "version": "1.2.1",
         "adaptation": "1.2.*"
     },
     "extra": {
