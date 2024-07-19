@@ -14,11 +14,15 @@ use Laket\Admin\FlashDisable\Middleware;
 
 class Service extends BaseService
 {
-    
     /**
      * composer
      */
     public $composer = __DIR__ . '/../composer.json';
+    
+    /**
+     * 包名
+     */
+    protected $pkg = 'laket/laket-flash-disable';
     
     /**
      * 启动
@@ -28,6 +32,14 @@ class Service extends BaseService
         Flash::extend('laket/laket-flash-disable', __CLASS__);
     }
     
+    /**
+     * 在插件安装、插件卸载等操作时有效
+     */
+    public function action()
+    {
+        register_install_hook($this->pkg, [$this, 'install']);
+    }
+
     /**
      * 开始，只有启用后加载
      */
